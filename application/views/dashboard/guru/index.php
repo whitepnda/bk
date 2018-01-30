@@ -35,7 +35,7 @@
 				        <tbody>
 				        	<?php foreach($data as $list) { ;?>
 				            <tr>
-				                <td><?php echo $list->nis;?></td>
+				                <td><?php echo $list->nik;?></td>
 				                <td><?php echo $list->nama;?></td>
 				                <td><?php echo $list->kelas;?></td>
 				                <td>
@@ -44,10 +44,10 @@
 				                	<!-- <a href="<?php echo site_url('guru/detail/').$list->id_guru;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-search"></span> detail</a> -->
 				                	<!-- <a target="_blank" href="<?php echo site_url('guru/pdf/').$list->id_guru;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"></span> cetak</a> -->
 				                	<?php if($list->status==0) { ;?>
-				                		<a href="<?php echo site_url('guru/delete/').$list->id_guru.'/'.$list->nis;?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> hapus</a>
+				                		<a href="<?php echo site_url('guru/delete/').$list->id_guru.'/'.$list->nik;?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> hapus</a>
 				                	<?php };?>
 				                	<?php if($list->status==1) { ;?>
-				                		<a href="<?php echo site_url('guru/restore/').$list->id_guru.'/'.$list->nis;?>" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-repeat"></span> restore</a>
+				                		<a href="<?php echo site_url('guru/restore/').$list->id_guru.'/'.$list->nik;?>" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-repeat"></span> restore</a>
 				                	<?php };?>
 
 				                	</div>

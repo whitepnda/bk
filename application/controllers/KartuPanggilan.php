@@ -74,12 +74,11 @@ class KartuPanggilan extends CI_Controller {
 		 $data_post = $this->input->post();
 		//print_r($data_post);
 		 $data=array(
-		 'jam_ke'=>$data_post['jam_ke'],
-		 'ruang'=>$data_post['ruang'],
-		 'menghadap'=>$data_post['menghadap'],
-		 'perihal'=>$data_post['perihal'],
-		 'id_student'=>$data_post['id_student'],
-		 'date'=>$data_post['date']	
+          'id_student'=>$data_post['id_student'],
+          'date'=>$data_post['date'],
+          'masalah_siswa'=>$data_post['masalah_siswa'],
+          'penanganan'=>$data_post['penanganan'],
+          'tanda_tangan'=>$data_post['tanda_tangan'],
 		 );
 		 $query=$this->KartuPanggilan_model->register($data);
 		 if($query){
@@ -118,15 +117,14 @@ class KartuPanggilan extends CI_Controller {
 	{
 	 	$data_post = $this->input->post();
 		$data=array(
-		 'jam_ke'=>$data_post['jam_ke'],
-		 'ruang'=>$data_post['ruang'],
-		 'menghadap'=>$data_post['menghadap'],
-		 'perihal'=>$data_post['perihal'],
-		 'id_student'=>$data_post['id_student'],
-		 'date'=>$data_post['date']		
+		   'id_student'=>$data_post['id_student'],
+          'date'=>$data_post['date'],
+          'masalah_siswa'=>$data_post['masalah_siswa'],
+          'penanganan'=>$data_post['penanganan'],
+          'tanda_tangan'=>$data_post['tanda_tangan'],	
 		 );
 
-		$query=$this->KartuPanggilan_model->update($data,$data_post['id_kartu_panggilan']);
+		$query=$this->KartuPanggilan_model->update($data,$data_post['id_kartu_konseling']);
 		if($query){
     	 	$success ="data telah berhasil di ubah";
             $this->session->set_flashdata('success',$success);

@@ -100,30 +100,32 @@
 			$("#search").click(function(e){
 				e.preventDefault();
 				var nis=$('#nis').val();
-				$.getJSON({
-					url:url+'visit/getData/'+nis,
-				}).done(function(data){
-
-					var result=data[0];
-						console.log(result);
-					if(result==undefined){
-						alert("data siswa tidak ditemukan");
-					}else{
-						$("#nama").val(result.nama);
-						$("#kelas").val(result.kelas);
-						$("#alamat").val(result.alamat_rumah);
-						$("#nis_view").val(result.nis);
-						$("#id_student").val(result.id_student);
-						$("#thn_ajaran").val(result.thn_pelajaran);
-						$("#jurusan").val(result.jurusan);
-							
-					}
-					
-				});
-
+				if($('#nama').val()==''){
+					$.getJSON({
+						url:url+'visit/getData/'+nis,
+						}).done(function(data){
+						var result=data[0];
+							console.log(result);
+						if(result==undefined){
+							alert("data siswa tidak ditemukan");
+						}else{
+							$("#nama").val(result.nama);
+							$("#kelas").val(result.kelas);
+							$("#alamat").val(result.alamat_rumah);
+							$("#nis_view").val(result.nis);
+							$("#id_student").val(result.id_student);
+							$("#thn_ajaran").val(result.thn_pelajaran);
+							$("#jurusan").val(result.jurusan);
+								
+						}
+						
+					});
+				}else{
+					alert('data sudah terisi');
+				}
+				
 			})
 			
-
 		})
 	</script>
 </body>

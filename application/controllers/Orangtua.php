@@ -189,7 +189,7 @@ class OrangTua extends CI_Controller {
             $this->session->set_flashdata('success',$success);
             redirect('orangtua');
 		}else{
-			$error ="data telah gagal dihapuspus";
+			$error ="data telah gagal dihapus";
             $this->session->set_flashdata('error',$error);
             redirect('orangtua');
 		}

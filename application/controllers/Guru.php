@@ -4,20 +4,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Guru extends CI_Controller {
 
 	 public function __construct()
-    {
-      parent::__construct();
-      //$this->load->library('PHPExcel');
-      $this->load->library('PHPExcel/IOFactory');
-      if($this->session->userdata('login')!='TRUE'){
-      redirect('auth');
-    };
-          $this->load->helper(array('form', 'url'));
-          $this->load->model('student_model');
-          $this->load->model('school_model');
-          $this->load->model('auth_model');	
-          $this->load->model('orangtua_model');	
-          $this->load->model('guru_model');
-          $this->load->model('KonselingIndividu_model');
+       {
+            parent::__construct();
+            //$this->load->library('PHPExcel');
+            $this->load->library('PHPExcel/IOFactory');
+            if($this->session->userdata('login')!='TRUE'){
+           	redirect('auth');
+           };
+            $this->load->helper(array('form', 'url'));
+            $this->load->model('student_model');
+            $this->load->model('school_model');
+            $this->load->model('auth_model');	
+        	 $this->load->model('orangtua_model');	
+           $this->load->model('guru_model');
+	         $this->load->model('KonselingIndividu_model');
        }
 
 	public function index()
@@ -82,18 +82,18 @@ class Guru extends CI_Controller {
         };
 
         $data_guru=array(
-        'username'=>$data_post['nis'],
+        'username'=>$data_post['nik'],
         'level'=>3,
         'password'=>md5($data_post['password'])	
         );
 
         $data=array(
-      	'nis'=>$data_post['nis'],
+      	'nik'=>$data_post['nik'],
 		    'nama'=>$data_post['nama'],  
 		    'Kelas'=>$data_post['Kelas'],  
 		    'status'=>0  
         );
-        //print_r($data_guru);
+        //print_r($data_ortu);
         $query=$this->guru_model->register($data);
         $query_user=$this->auth_model->register($data_guru);
 

@@ -24,33 +24,35 @@
 					<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				        <thead>
 				            <tr>
-				                <th>&nbsp;</th>
-				                <th>NIS</th>
-				                <th>Nama siswa</th>
-				                <th>Menghadap</th>
-				                <th>Aksi</th>
-				            </tr>
-				        </thead>
+                        <th>&nbsp;</th>
+                        <th>NIS</th>
+                        <th>Nama Lengkap</th>
+                        <th>Kelas</th>
+                        <th>Jurusan</th>
+                        <th>Hp</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
         
-				        <tbody>
-				        	<?php $x=1; foreach($data as $list) {;?>
-				            <tr>
-				            	<td><?php echo $x;?></td>
-				               <td>
-				               	<?php echo $list->nis;?>
-				               </td>
-				               <td>
-								<?php echo $list->nama;?>
-				               </td>
-				               <td>
-				               		<?php echo $list->menghadap;?>
-				              </td>
+                <tbody>
+                  <?php foreach($data as $list) { ;?>
+                    <tr>
+                        <td><?php echo $list->nis;?></td>
+                        <td><?php echo $list->nama;?></td>
+                        <td><?php echo $list->kelas;?></td>
+                        <td><?php echo $list->jurusan;?></td>
+                        <td><?php echo $list->agama;?></td>
+                        <td><?php echo $list->alamat_rumah;?></td>
+                        <td><?php echo $list->tempat_lahir;?></td>
+                        <td><?php echo $list->tanggal_lahir;?></td>
+                        <td><?php echo $list->hp;?></td>
+                        <td>
 				                <td width="28%">
 				                	<div class="btn-group">
-				                	<a href="<?php echo site_url('KartuPanggilan/edit/').$list->id_kartu_panggilan;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit"></span> edit</a>
-				                	<a href="<?php echo site_url('KartuPanggilan/detail/').$list->id_kartu_panggilan;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-search"></span> detail</a>
-				                	<a target="_blank" href="<?php echo site_url('KartuPanggilan/pdf/').$list->id_kartu_panggilan;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"></span> cetak</a>
-				                	<a href="<?php echo site_url('KartuPanggilan/delete/').$list->id_kartu_panggilan;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"></span> hapus</a>
+				                	<a href="<?php echo site_url('KartuPanggilan/edit/').$list->id_kartu_konseling;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit"></span> edit</a>
+				                	<a href="<?php echo site_url('KartuPanggilan/detail/').$list->id_kartu_konseling;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-search"></span> detail</a>
+				                	<a target="_blank" href="<?php echo site_url('KartuPanggilan/pdf/').$list->id_kartu_konseling;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"></span> cetak</a>
+				                	<a href="<?php echo site_url('KartuPanggilan/delete/').$list->id_kartu_konseling;?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"></span> hapus</a>
 				                	</div>
 				                </td>
 				            </tr>
