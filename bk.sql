@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 22, 2017 at 05:57 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.5.33
+-- Host: 127.0.0.1
+-- Generation Time: 30 Jan 2018 pada 06.12
+-- Versi Server: 10.1.30-MariaDB
+-- PHP Version: 5.6.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_agenda`
+-- Struktur dari tabel `bk_agenda`
 --
 
 CREATE TABLE `bk_agenda` (
@@ -35,7 +37,7 @@ CREATE TABLE `bk_agenda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_agenda`
+-- Dumping data untuk tabel `bk_agenda`
 --
 
 INSERT INTO `bk_agenda` (`id_agenda`, `tgl`, `kegiatan`, `keterangan`, `status`) VALUES
@@ -45,7 +47,7 @@ INSERT INTO `bk_agenda` (`id_agenda`, `tgl`, `kegiatan`, `keterangan`, `status`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_anekdot`
+-- Struktur dari tabel `bk_anekdot`
 --
 
 CREATE TABLE `bk_anekdot` (
@@ -59,7 +61,7 @@ CREATE TABLE `bk_anekdot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_anekdot`
+-- Dumping data untuk tabel `bk_anekdot`
 --
 
 INSERT INTO `bk_anekdot` (`id_anekdot`, `id_student`, `tgl_kejadian`, `tempat_kejadian`, `ket_kejadian`, `tindak_lanjut`, `status`) VALUES
@@ -69,7 +71,7 @@ INSERT INTO `bk_anekdot` (`id_anekdot`, `id_student`, `tgl_kejadian`, `tempat_ke
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_data_konsultasi`
+-- Struktur dari tabel `bk_data_konsultasi`
 --
 
 CREATE TABLE `bk_data_konsultasi` (
@@ -83,7 +85,7 @@ CREATE TABLE `bk_data_konsultasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_data_konsultasi`
+-- Dumping data untuk tabel `bk_data_konsultasi`
 --
 
 INSERT INTO `bk_data_konsultasi` (`id_data_konsultasi`, `id_student`, `menghadap`, `jam_ke`, `selesai_pukul`, `selesai_jam_ke`, `status`) VALUES
@@ -92,7 +94,38 @@ INSERT INTO `bk_data_konsultasi` (`id_data_konsultasi`, `id_student`, `menghadap
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_hasil_konferensi`
+-- Struktur dari tabel `bk_guru`
+--
+
+CREATE TABLE `bk_guru` (
+  `id_guru` int(11) NOT NULL,
+  `nik` varchar(100) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `Kelas` varchar(200) NOT NULL,
+  `Password` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `bk_guru`
+--
+
+INSERT INTO `bk_guru` (`id_guru`, `nik`, `nama`, `Kelas`, `Password`, `status`) VALUES
+(0, '197807162005022004', 'Nurul Khasanah, S.Psi', 'X.MIA 1-6, X.IIS 1-4', '', 1),
+(0, '197807162005022005', 'Tri Setiawan Budianto, S.pd', 'XII.MIA 1-6 , XII IIS 1-3', '', 1),
+(0, '197807162005022006', 'Ratna Agustina, S.Pd', 'XI.MIA 1-3', '', 1),
+(0, '197807162005022007', 'Abdul Syukur, S.Pd', 'XI.MIA 4-6, XI.IIS 1-3', '', 1),
+(0, '197807162005022008', 'Akbar maulana, S.Pd', 'XI.IIS 4-5', '', 1),
+(0, '197807162005022004', 'Nurul Khasanah, S.Psi', 'X.MIA 1-6, X.IIS 1-4', '', 1),
+(0, '197807162005022005', 'Tri Setiawan Budianto, S.pd', 'XII.MIA 1-6 , XII IIS 1-3', '', 1),
+(0, '197807162005022006', 'Ratna Agustina, S.Pd', 'XI.MIA 1-3', '', 1),
+(0, '197807162005022007', 'Abdul Syukur, S.Pd', 'XI.MIA 4-6, XI.IIS 1-3', '', 1),
+(0, '197807162005022008', 'Akbar maulana, S.Pd', 'XI.IIS 4-5', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bk_hasil_konferensi`
 --
 
 CREATE TABLE `bk_hasil_konferensi` (
@@ -117,7 +150,7 @@ CREATE TABLE `bk_hasil_konferensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_hasil_konferensi`
+-- Dumping data untuk tabel `bk_hasil_konferensi`
 --
 
 INSERT INTO `bk_hasil_konferensi` (`id_hasil_konferensi`, `id_student`, `tanggal`, `deskripsi_kasus`, `nama_1`, `nama_2`, `nama_3`, `nama_4`, `nama_5`, `jabatan_1`, `jabatan_2`, `jabatan_3`, `jabatan_4`, `jabatan_5`, `hasil`, `evaluasi`, `catatan`, `status`) VALUES
@@ -127,7 +160,7 @@ INSERT INTO `bk_hasil_konferensi` (`id_hasil_konferensi`, `id_student`, `tanggal
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_home_visit`
+-- Struktur dari tabel `bk_home_visit`
 --
 
 CREATE TABLE `bk_home_visit` (
@@ -144,7 +177,7 @@ CREATE TABLE `bk_home_visit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_home_visit`
+-- Dumping data untuk tabel `bk_home_visit`
 --
 
 INSERT INTO `bk_home_visit` (`id_home_visit`, `no_surat`, `nama`, `nip`, `jabatan`, `tanggal`, `waktu`, `tempat`, `keperluan`, `status`) VALUES
@@ -154,31 +187,34 @@ INSERT INTO `bk_home_visit` (`id_home_visit`, `no_surat`, `nama`, `nip`, `jabata
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_kartu_panggilan`
+-- Struktur dari tabel `bk_kartu_status_konseling`
 --
 
-CREATE TABLE `bk_kartu_panggilan` (
-  `id_kartu_panggilan` int(11) NOT NULL,
+CREATE TABLE `bk_kartu_status_konseling` (
+  `id_kartu_konseling` int(11) NOT NULL,
   `id_student` int(11) NOT NULL,
-  `jam_ke` varchar(400) NOT NULL,
-  `ruang` varchar(400) NOT NULL,
-  `menghadap` text NOT NULL,
-  `perihal` text NOT NULL,
-  `status` int(11) NOT NULL,
-  `date` date NOT NULL
+  `nis` varchar(120) NOT NULL,
+  `nama_siswa` varchar(120) NOT NULL,
+  `nama_panggilan` varchar(400) NOT NULL,
+  `tempat_lahir` varchar(120) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `agama1` tinyint(1) NOT NULL,
+  `anak_dari` varchar(10) NOT NULL,
+  `jumlah_keluarga` varchar(10) NOT NULL,
+  `alamat_orangtua` text NOT NULL,
+  `telpon` varchar(120) NOT NULL,
+  `kelas` varchar(120) NOT NULL,
+  `date` date NOT NULL,
+  `masalah_siswa` varchar(120) NOT NULL,
+  `penanganan` varchar(120) NOT NULL,
+  `tanda_tangan` text NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bk_kartu_panggilan`
---
-
-INSERT INTO `bk_kartu_panggilan` (`id_kartu_panggilan`, `id_student`, `jam_ke`, `ruang`, `menghadap`, `perihal`, `status`, `date`) VALUES
-(1, 1, '9', 'IPA 4', 'Bpk sujana apriana', 'ketahuan membolos saat jam pelajaran', 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_konseling_individu`
+-- Struktur dari tabel `bk_konseling_individu`
 --
 
 CREATE TABLE `bk_konseling_individu` (
@@ -207,7 +243,7 @@ CREATE TABLE `bk_konseling_individu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_konseling_individu`
+-- Dumping data untuk tabel `bk_konseling_individu`
 --
 
 INSERT INTO `bk_konseling_individu` (`id_konseling_individu`, `format`, `tanggal_pelayanan`, `pertemuan_ke`, `klasifikasi_umum`, `belajar`, `deskrpisi_masalah`, `diagnosa1`, `diagnosa2`, `diagnosa3`, `prognosa1`, `prognosa2`, `prognosa3`, `tahap`, `treatment`, `teknis`, `understanding`, `comfort`, `action`, `tindak_lanjut`, `id_student`, `status`) VALUES
@@ -217,33 +253,34 @@ INSERT INTO `bk_konseling_individu` (`id_konseling_individu`, `format`, `tanggal
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_orangtua`
+-- Struktur dari tabel `bk_orangtua`
 --
 
 CREATE TABLE `bk_orangtua` (
   `id_orangtua` int(11) NOT NULL,
   `id_student` int(11) NOT NULL,
-  `nik` varchar(100) NOT NULL,
-  `nama_ortu` varchar(120) NOT NULL,
+  `nis` varchar(100) NOT NULL,
+  `nama_anak` varchar(120) NOT NULL,
+  `nama_orangtua` varchar(120) NOT NULL,
   `alamat_rumah` text NOT NULL,
   `telp` varchar(100) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
   `tempat_lahir` varchar(500) NOT NULL,
-  `tanggal_lahir` date NOT NULL
+  `tanggal_lahir` date NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_orangtua`
+-- Dumping data untuk tabel `bk_orangtua`
 --
 
-INSERT INTO `bk_orangtua` (`id_orangtua`, `id_student`, `nik`, `nama_ortu`, `alamat_rumah`, `telp`, `status`, `tempat_lahir`, `tanggal_lahir`) VALUES
-(1, 1, '1234567890', 'budi budiman', 'jalan abcd efgh', '08590909090', 0, '', '0000-00-00'),
-(2, 4, '1234567891011', 'parno', 'test alamat rumah test', '0859999999', 0, 'boyolali', '2017-11-30');
+INSERT INTO `bk_orangtua` (`id_orangtua`, `id_student`, `nis`, `nama_anak`, `nama_orangtua`, `alamat_rumah`, `telp`, `tempat_lahir`, `tanggal_lahir`, `status`) VALUES
+(1, 1, '3105111364', 'akbar pamungkas', 'joko', 'jl.komodo', '0878777666534', 'bekasi', '1899-12-12', 0),
+(2, 2, '3105111365', 'andika', 'budiono', 'jl.komodo', '085988763234', 'medan', '1988-10-09', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_rujukan_alih_tangan_kasus`
+-- Struktur dari tabel `bk_rujukan_alih_tangan_kasus`
 --
 
 CREATE TABLE `bk_rujukan_alih_tangan_kasus` (
@@ -263,7 +300,7 @@ CREATE TABLE `bk_rujukan_alih_tangan_kasus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_rujukan_alih_tangan_kasus`
+-- Dumping data untuk tabel `bk_rujukan_alih_tangan_kasus`
 --
 
 INSERT INTO `bk_rujukan_alih_tangan_kasus` (`id_rujukan_alih_tangan_kasus`, `no_surat`, `perihal`, `pekerjaan`, `masalah`, `hasil_konseling`, `catatan_khusus`, `yang_diundang`, `jabatan`, `di`, `id_student`, `date`, `status`) VALUES
@@ -272,7 +309,7 @@ INSERT INTO `bk_rujukan_alih_tangan_kasus` (`id_rujukan_alih_tangan_kasus`, `no_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_satkung_alih_tangan_kasus`
+-- Struktur dari tabel `bk_satkung_alih_tangan_kasus`
 --
 
 CREATE TABLE `bk_satkung_alih_tangan_kasus` (
@@ -298,7 +335,7 @@ CREATE TABLE `bk_satkung_alih_tangan_kasus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_satkung_alih_tangan_kasus`
+-- Dumping data untuk tabel `bk_satkung_alih_tangan_kasus`
 --
 
 INSERT INTO `bk_satkung_alih_tangan_kasus` (`id_satkung_alih_tangan_kasus`, `topik`, `bidang_bimbingan`, `jenis_kegiatan`, `fungsi_kegiatan`, `tujuan_kegiatan`, `hasil`, `subjek`, `ringkas`, `kepada`, `alasan`, `kapan`, `bahan`, `pendukung`, `tindak_lanjut`, `catatan_khusus`, `id_student`, `status`, `date`) VALUES
@@ -307,7 +344,7 @@ INSERT INTO `bk_satkung_alih_tangan_kasus` (`id_satkung_alih_tangan_kasus`, `top
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_satkung_home_visit`
+-- Struktur dari tabel `bk_satkung_home_visit`
 --
 
 CREATE TABLE `bk_satkung_home_visit` (
@@ -338,7 +375,7 @@ CREATE TABLE `bk_satkung_home_visit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_satkung_home_visit`
+-- Dumping data untuk tabel `bk_satkung_home_visit`
 --
 
 INSERT INTO `bk_satkung_home_visit` (`id_satkung_home_visit`, `id_student`, `sasaran_pelayanan`, `topik`, `bidang_layanan`, `jenis_layanan`, `fungsi_layanan`, `kompetensi`, `bentuk_kegiatan`, `alokasi_waktu`, `waktu_pelaksanaan`, `tempat_kegiatan`, `pelaksana_kegiatan`, `pihak`, `alat`, `konselor`, `konseli`, `laiseg`, `laijapen`, `laijapang`, `rencana_tidak_lanjut`, `pembiayaan`, `tahun_ajaran`, `status`) VALUES
@@ -348,7 +385,7 @@ INSERT INTO `bk_satkung_home_visit` (`id_satkung_home_visit`, `id_student`, `sas
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_sekolah`
+-- Struktur dari tabel `bk_sekolah`
 --
 
 CREATE TABLE `bk_sekolah` (
@@ -372,16 +409,23 @@ CREATE TABLE `bk_sekolah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_sekolah`
+-- Dumping data untuk tabel `bk_sekolah`
 --
 
 INSERT INTO `bk_sekolah` (`id_sekolah`, `kop_surat1`, `kop_surat2`, `nama`, `alamat`, `telp`, `fax`, `email`, `situs`, `kepsek`, `nip`, `kota`, `provinsi`, `logo_sekolah`, `logo_kabupaten`, `logo_iso`, `status`) VALUES
+(1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0),
+(1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0),
+(1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0),
+(1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0),
+(1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0),
+(1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0),
+(1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0),
 (1, 'Dinas pendidikan dan kebudayaan			', '							', 'test1', 'Jln lorem ipsum no 27			', '02190909011', '02190909011', 'agent1@gmail.com1', 'test.com1', 'Bpk Junaidi1', '1210909090909011', 'Bandung1', 'Jawa Barat1', 'public/upload/logo/Logo_SMAN_1_Bandung.jpg', 'public/upload/logo/kab_bandung.jpg', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_student`
+-- Struktur dari tabel `bk_student`
 --
 
 CREATE TABLE `bk_student` (
@@ -394,47 +438,33 @@ CREATE TABLE `bk_student` (
   `tanggal_lahir` date NOT NULL,
   `telp_rumah` varchar(20) NOT NULL,
   `hp` varchar(20) NOT NULL,
-  `telp_kost` varchar(20) NOT NULL,
   `alamat_rumah` text NOT NULL,
-  `alamat_kost` text NOT NULL,
   `gol_darah` varchar(20) NOT NULL,
   `tinggi_badan` varchar(10) NOT NULL,
   `berat_badan` varchar(10) NOT NULL,
-  `agama` tinyint(1) NOT NULL,
   `jkel` int(11) NOT NULL,
+  `agama` tinyint(1) NOT NULL,
   `anak_ke` varchar(10) NOT NULL,
   `jumlah_saudara` varchar(10) NOT NULL,
   `hobby` varchar(500) NOT NULL,
-  `riwayat_sakit` text NOT NULL,
-  `tinggal_dengan` varchar(500) NOT NULL,
   `thn_pelajaran` varchar(500) NOT NULL,
-  `asal_sekolah` text NOT NULL,
-  `jumlah_skhu` int(10) NOT NULL,
   `kelas` varchar(100) NOT NULL,
   `jurusan` varchar(400) NOT NULL,
-  `iq_siswa` varchar(500) NOT NULL,
-  `iq_tanggal` date NOT NULL,
-  `prestasi` text NOT NULL,
-  `prestasi_2` text NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_student`
+-- Dumping data untuk tabel `bk_student`
 --
 
-INSERT INTO `bk_student` (`id_student`, `nis`, `nama`, `photo`, `nama_pangilan`, `tempat_lahir`, `tanggal_lahir`, `telp_rumah`, `hp`, `telp_kost`, `alamat_rumah`, `alamat_kost`, `gol_darah`, `tinggi_badan`, `berat_badan`, `agama`, `jkel`, `anak_ke`, `jumlah_saudara`, `hobby`, `riwayat_sakit`, `tinggal_dengan`, `thn_pelajaran`, `asal_sekolah`, `jumlah_skhu`, `kelas`, `jurusan`, `iq_siswa`, `iq_tanggal`, `prestasi`, `prestasi_2`, `status`) VALUES
-(1, '123456789', 'akbar pamungkas', 'public/upload/20161217041242.jpg', 'akbar', 'wonogiri', '2016-12-10', '021-1000-001', '09859890890', '021-090990', 'Jln lorem ipsum jakarta selatan', 'Jln lorem ipsum jakarta selatan jakarta baru', 'O', '157 cm', '67 kg', 1, 1, '1', '2', 'membaca buku dan belajar', 'tidak ada', '', '2013-2017', 'SMAN 1 jakarta', 300, '11 IPA 1', 'IPA', '400', '2016-12-01', 'Juara silat provinsi', 'Juara olimpiade sains', 0),
-(2, '13109876', 'prabu', '', 'prabu', 'wonogiri', '1970-01-01', '08589891', '08958981', '098989819', 'lorem', 'lorem', 'A', '176 cm', '80 kg', 1, 1, '1', '1', 'lorem', 'lorem', 'lorem', '2009', 'sma lorem', 90, '3 ipa 2', 'IPA', '56', '2017-02-11', 'lorem', 'lorem', 1),
-(3, '12109873', 'Akbar 2', 'public/upload/20161217051237.jpg', 'bram', 'jepara', '1970-01-01', '08589891', '08958981', '098989819', 'lorem', 'lorem', '0', '156 cm', '65 kg', 1, 1, '1', '1', 'lorem', 'lorem', 'lorem', '2009', 'sma lorem', 90, '3 ipa 2', 'IPA', '56', '2017-02-11', 'lorem', 'lorem', 0),
-(4, '14149091', 'Prabu 2', '', 'prabu', 'wonogiri', '1970-01-01', '08589891', '08958981', '098989819', 'lorem', 'lorem', 'A', '176 cm', '80 kg', 1, 1, '1', '1', 'lorem', 'lorem', 'lorem', '2009', 'sma lorem', 90, '3 ipa 2', 'IPA', '56', '2017-02-11', 'lorem', 'lorem', 0),
-(5, '12109874', 'Akbar 2', '', 'bram', 'jepara', '1970-01-01', '8589891', '8958981', '98989819', 'lorem', 'lorem', '0', '156 cm', '65 kg', 1, 1, '1', '1', 'lorem', 'lorem', 'lorem', '2009', 'sma lorem', 90, '3 ipa 2', 'IPA', '56', '2017-02-11', 'lorem', 'lorem', 1),
-(6, '14149092', 'Prabu 2', '', 'prabu', 'wonogiri', '1970-01-01', '8589891', '8958981', '98989819', 'lorem', 'lorem', 'A', '176 cm', '80 kg', 1, 1, '1', '1', 'lorem', 'lorem', 'lorem', '2009', 'sma lorem', 90, '3 ipa 2', 'IPA', '56', '2017-02-11', 'lorem', 'lorem', 1);
+INSERT INTO `bk_student` (`id_student`, `nis`, `nama`, `photo`, `nama_pangilan`, `tempat_lahir`, `tanggal_lahir`, `telp_rumah`, `hp`, `alamat_rumah`, `gol_darah`, `tinggi_badan`, `berat_badan`, `jkel`, `agama`, `anak_ke`, `jumlah_saudara`, `hobby`, `thn_pelajaran`, `kelas`, `jurusan`, `status`) VALUES
+(1, '3105111364', 'akbar pamungkas', 'public/upload/20161217041242.jpg', 'akbar', 'wonogiri', '2016-12-10', '021-1000-001', '09859890890', '021-090990', 'O', '171 cm', '55kg', 1, 1, '1', '3', 'memancing', '2012', 'XII-MIPA -4', 'IPA', 0),
+(2, '3105111365', 'andika', 'public/upload/20180125110159.jpg', 'dika', 'bogor', '1999-10-18', '02184995805', '0859888776543', 'jl. ikan paus raya no. 15 D', 'A', '170cm', '60kg', 1, 1, '2', '3', 'sepak bola', '2012', 'XII-MIPA -4', 'IPA', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_undangan_konferensi`
+-- Struktur dari tabel `bk_undangan_konferensi`
 --
 
 CREATE TABLE `bk_undangan_konferensi` (
@@ -451,17 +481,19 @@ CREATE TABLE `bk_undangan_konferensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_undangan_konferensi`
+-- Dumping data untuk tabel `bk_undangan_konferensi`
 --
 
 INSERT INTO `bk_undangan_konferensi` (`id_undangan_konferensi`, `no_surat`, `perihal`, `yang_diundang`, `di`, `tanggal`, `waktu`, `tempat`, `keperluan`, `status`) VALUES
+(1, '12109878878', 'undangan untuk konferensi kasus', 'bapak abdi', 'tempat', '2017-12-11', '10:00', 'jakarta', 'test test ', 1),
+(2, '12109878878', 'undangan untuk konferensi kasus untuk orang tua murid', 'bapak abdi negara', 'tempat', '2017-12-11', '10:00', 'sekolah SMA garut', 'untuk sekiranya dapat menghadirinya agar segera dapat selesai', 0),
 (1, '12109878878', 'undangan untuk konferensi kasus', 'bapak abdi', 'tempat', '2017-12-11', '10:00', 'jakarta', 'test test ', 1),
 (2, '12109878878', 'undangan untuk konferensi kasus untuk orang tua murid', 'bapak abdi negara', 'tempat', '2017-12-11', '10:00', 'sekolah SMA garut', 'untuk sekiranya dapat menghadirinya agar segera dapat selesai', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_undangan_orang_tua`
+-- Struktur dari tabel `bk_undangan_orang_tua`
 --
 
 CREATE TABLE `bk_undangan_orang_tua` (
@@ -479,16 +511,23 @@ CREATE TABLE `bk_undangan_orang_tua` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_undangan_orang_tua`
+-- Dumping data untuk tabel `bk_undangan_orang_tua`
 --
 
 INSERT INTO `bk_undangan_orang_tua` (`id_undangan_orang_tua`, `no_surat`, `perihal`, `id_student`, `orang_tua`, `di`, `tanggal`, `waktu`, `tempat`, `keperluan`, `status`) VALUES
+(1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0),
+(1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0),
+(1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0),
+(1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0),
+(1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0),
+(1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0),
+(1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0),
 (1, '12109878878', 'undangan untuk orang tua ', 1, 'Bpk Parmain', 'tempat', '2017-11-02', '10:00', 'sekolah SMA garut', 'untuk perubahan ', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_user`
+-- Struktur dari tabel `bk_user`
 --
 
 CREATE TABLE `bk_user` (
@@ -500,7 +539,7 @@ CREATE TABLE `bk_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_user`
+-- Dumping data untuk tabel `bk_user`
 --
 
 INSERT INTO `bk_user` (`id_user`, `username`, `password`, `level`, `status`) VALUES
@@ -512,12 +551,138 @@ INSERT INTO `bk_user` (`id_user`, `username`, `password`, `level`, `status`) VAL
 (9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
 (10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
 (11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
-(12, '1234567891011', '3fc0a7acf087f549ac2b266baf94b8b1', 0, 0);
+(12, '1234567891011', '3fc0a7acf087f549ac2b266baf94b8b1', 0, 0),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0),
+(5, '123456789', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(6, '13109876', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(7, '12109874', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(8, '14149091', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
+(10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
+(11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(12, '1234567891011', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(13, '1112091', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(14, '12345678567', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(15, '12345656565', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(16, '1112092', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(0, '3105111364', 'e10adc3949ba59abbe56e057f20f883e', 0, 1),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0),
+(5, '123456789', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(6, '13109876', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(7, '12109874', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(8, '14149091', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
+(10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
+(11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(12, '1234567891011', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(13, '1112091', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(14, '12345678567', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(15, '12345656565', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(16, '1112092', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0),
+(5, '123456789', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(6, '13109876', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(7, '12109874', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(8, '14149091', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
+(10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
+(11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(12, '1234567891011', '3fc0a7acf087f549ac2b266baf94b8b1', 0, 0),
+(0, '1112092', 'e10adc3949ba59abbe56e057f20f883e', 3, 1),
+(0, '197807162005022004', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022004', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 1),
+(0, '197807162005022004', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 1),
+(0, '197807162005022006', '25f9e794323b453885f5181f1b624d0b', 3, 0),
+(0, '197807162005022004', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
+(0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022007', '25f9e794323b453885f5181f1b624d0b', 3, 0),
+(0, '197807162005022008', 'd41d8cd98f00b204e9800998ecf8427e', 3, 1),
+(0, '197807162005022004', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
+(0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022007', '25f9e794323b453885f5181f1b624d0b', 3, 0),
+(0, '197807162005022004', '827ccb0eea8a706c4c34a16891f84e7b', 3, 0),
+(0, '197807162005022005', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
+(0, '197807162005022006', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
+(0, '197807162005022007', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022008', '25f9e794323b453885f5181f1b624d0b', 3, 1),
+(0, '1111111111', 'fcea920f7412b5da7be0cf42b8c93759', 0, 0),
+(0, '3105111365', '81dc9bdb52d04dc20036dbd8313ed055', 0, 1),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
+(5, '123456789', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(6, '13109876', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(7, '12109874', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(8, '14149091', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
+(10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
+(11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(12, '1234567891011', '3fc0a7acf087f549ac2b266baf94b8b1', 0, 0),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
+(5, '123456789', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(6, '13109876', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(7, '12109874', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(8, '14149091', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
+(10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
+(11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(12, '1234567891011', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(13, '1112091', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(14, '12345678567', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(15, '12345656565', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(16, '1112092', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(0, '3105111364', 'e10adc3949ba59abbe56e057f20f883e', 0, 0),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
+(5, '123456789', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(6, '13109876', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(7, '12109874', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(8, '14149091', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
+(10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
+(11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(12, '1234567891011', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(13, '1112091', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(14, '12345678567', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(15, '12345656565', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(16, '1112092', '77e69c137812518e359196bb2f5e9bb9', 3, 1),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0),
+(5, '123456789', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(6, '13109876', '21232f297a57a5a743894a0e4a801fc3', 0, 1),
+(7, '12109874', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(8, '14149091', '21232f297a57a5a743894a0e4a801fc3', 0, 0),
+(9, '12109874', 'c5cfdd9a78d4d841c2de04db24034568', 0, 0),
+(10, '14149091', '585fb1c39e506405563bbc93034c59bd', 0, 0),
+(11, '1234567890', '21232f297a57a5a743894a0e4a801fc3', 2, 0),
+(12, '1234567891011', '3fc0a7acf087f549ac2b266baf94b8b1', 0, 0),
+(0, '1112092', 'e10adc3949ba59abbe56e057f20f883e', 3, 1),
+(0, '197807162005022004', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022004', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 1),
+(0, '197807162005022004', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 1),
+(0, '197807162005022006', '25f9e794323b453885f5181f1b624d0b', 3, 0),
+(0, '197807162005022004', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
+(0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022007', '25f9e794323b453885f5181f1b624d0b', 3, 0),
+(0, '197807162005022008', 'd41d8cd98f00b204e9800998ecf8427e', 3, 1),
+(0, '197807162005022004', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
+(0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
+(0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022007', '25f9e794323b453885f5181f1b624d0b', 3, 0),
+(0, '197807162005022004', '827ccb0eea8a706c4c34a16891f84e7b', 3, 0),
+(0, '197807162005022005', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
+(0, '197807162005022006', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
+(0, '197807162005022007', '25d55ad283aa400af464c76d713c07ad', 3, 0),
+(0, '197807162005022008', '25f9e794323b453885f5181f1b624d0b', 3, 1),
+(0, '1111111111', 'fcea920f7412b5da7be0cf42b8c93759', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bk_visit`
+-- Struktur dari tabel `bk_visit`
 --
 
 CREATE TABLE `bk_visit` (
@@ -535,10 +700,24 @@ CREATE TABLE `bk_visit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bk_visit`
+-- Dumping data untuk tabel `bk_visit`
 --
 
 INSERT INTO `bk_visit` (`id_kunjungan`, `id_student`, `nama_petugas_1`, `nip_petugas_1`, `nama_petugas_2`, `nip_petugas_2`, `jabatan_1`, `jabatan_2`, `hasil`, `tgl_kunjungan`, `status`) VALUES
+(1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
+(2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0),
+(1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
+(2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0),
+(1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
+(2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0),
+(1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
+(2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0),
+(1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
+(2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0),
+(1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
+(2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0),
+(1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
+(2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0),
 (1, 2, 'bunyamin b', '121209091', 'akbarb', '121209012', 'guru b', 'gurub', 'malas malasan di rumahb', '2016-12-09', 0),
 (2, 4, 'bunyamin', '12120909', 'akbar', '12120901', 'guru', 'guru', 'main game di rumah', '2016-12-01', 0);
 
@@ -577,10 +756,11 @@ ALTER TABLE `bk_home_visit`
   ADD PRIMARY KEY (`id_home_visit`);
 
 --
--- Indexes for table `bk_kartu_panggilan`
+-- Indexes for table `bk_kartu_status_konseling`
 --
-ALTER TABLE `bk_kartu_panggilan`
-  ADD PRIMARY KEY (`id_kartu_panggilan`);
+ALTER TABLE `bk_kartu_status_konseling`
+  ADD PRIMARY KEY (`id_kartu_konseling`),
+  ADD KEY `nis` (`nis`);
 
 --
 -- Indexes for table `bk_konseling_individu`
@@ -593,7 +773,7 @@ ALTER TABLE `bk_konseling_individu`
 --
 ALTER TABLE `bk_orangtua`
   ADD PRIMARY KEY (`id_orangtua`),
-  ADD UNIQUE KEY `nik` (`nik`);
+  ADD UNIQUE KEY `nik` (`nis`);
 
 --
 -- Indexes for table `bk_rujukan_alih_tangan_kasus`
@@ -614,12 +794,6 @@ ALTER TABLE `bk_satkung_home_visit`
   ADD PRIMARY KEY (`id_satkung_home_visit`);
 
 --
--- Indexes for table `bk_sekolah`
---
-ALTER TABLE `bk_sekolah`
-  ADD PRIMARY KEY (`id_sekolah`);
-
---
 -- Indexes for table `bk_student`
 --
 ALTER TABLE `bk_student`
@@ -627,118 +801,22 @@ ALTER TABLE `bk_student`
   ADD UNIQUE KEY `nis` (`nis`);
 
 --
--- Indexes for table `bk_undangan_konferensi`
---
-ALTER TABLE `bk_undangan_konferensi`
-  ADD PRIMARY KEY (`id_undangan_konferensi`);
-
---
--- Indexes for table `bk_undangan_orang_tua`
---
-ALTER TABLE `bk_undangan_orang_tua`
-  ADD PRIMARY KEY (`id_undangan_orang_tua`);
-
---
--- Indexes for table `bk_user`
---
-ALTER TABLE `bk_user`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- Indexes for table `bk_visit`
---
-ALTER TABLE `bk_visit`
-  ADD PRIMARY KEY (`id_kunjungan`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `bk_agenda`
+-- AUTO_INCREMENT for table `bk_kartu_status_konseling`
 --
-ALTER TABLE `bk_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_anekdot`
---
-ALTER TABLE `bk_anekdot`
-  MODIFY `id_anekdot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_data_konsultasi`
---
-ALTER TABLE `bk_data_konsultasi`
-  MODIFY `id_data_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `bk_hasil_konferensi`
---
-ALTER TABLE `bk_hasil_konferensi`
-  MODIFY `id_hasil_konferensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_home_visit`
---
-ALTER TABLE `bk_home_visit`
-  MODIFY `id_home_visit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_kartu_panggilan`
---
-ALTER TABLE `bk_kartu_panggilan`
-  MODIFY `id_kartu_panggilan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `bk_konseling_individu`
---
-ALTER TABLE `bk_konseling_individu`
-  MODIFY `id_konseling_individu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_orangtua`
---
-ALTER TABLE `bk_orangtua`
-  MODIFY `id_orangtua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_rujukan_alih_tangan_kasus`
---
-ALTER TABLE `bk_rujukan_alih_tangan_kasus`
-  MODIFY `id_rujukan_alih_tangan_kasus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `bk_satkung_alih_tangan_kasus`
---
-ALTER TABLE `bk_satkung_alih_tangan_kasus`
-  MODIFY `id_satkung_alih_tangan_kasus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `bk_satkung_home_visit`
---
-ALTER TABLE `bk_satkung_home_visit`
-  MODIFY `id_satkung_home_visit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_sekolah`
---
-ALTER TABLE `bk_sekolah`
-  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `bk_kartu_status_konseling`
+  MODIFY `id_kartu_konseling` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `bk_student`
 --
 ALTER TABLE `bk_student`
-  MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `bk_undangan_konferensi`
---
-ALTER TABLE `bk_undangan_konferensi`
-  MODIFY `id_undangan_konferensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `bk_undangan_orang_tua`
---
-ALTER TABLE `bk_undangan_orang_tua`
-  MODIFY `id_undangan_orang_tua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `bk_user`
---
-ALTER TABLE `bk_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `bk_visit`
---
-ALTER TABLE `bk_visit`
-  MODIFY `id_kunjungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
