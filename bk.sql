@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Jan 2018 pada 06.12
+-- Generation Time: 30 Jan 2018 pada 07.15
 -- Versi Server: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -101,8 +101,8 @@ CREATE TABLE `bk_guru` (
   `id_guru` int(11) NOT NULL,
   `nik` varchar(100) NOT NULL,
   `nama` varchar(200) NOT NULL,
-  `Kelas` varchar(200) NOT NULL,
-  `Password` varchar(100) NOT NULL,
+  `kelas` varchar(200) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -110,17 +110,12 @@ CREATE TABLE `bk_guru` (
 -- Dumping data untuk tabel `bk_guru`
 --
 
-INSERT INTO `bk_guru` (`id_guru`, `nik`, `nama`, `Kelas`, `Password`, `status`) VALUES
-(0, '197807162005022004', 'Nurul Khasanah, S.Psi', 'X.MIA 1-6, X.IIS 1-4', '', 1),
-(0, '197807162005022005', 'Tri Setiawan Budianto, S.pd', 'XII.MIA 1-6 , XII IIS 1-3', '', 1),
-(0, '197807162005022006', 'Ratna Agustina, S.Pd', 'XI.MIA 1-3', '', 1),
-(0, '197807162005022007', 'Abdul Syukur, S.Pd', 'XI.MIA 4-6, XI.IIS 1-3', '', 1),
-(0, '197807162005022008', 'Akbar maulana, S.Pd', 'XI.IIS 4-5', '', 1),
-(0, '197807162005022004', 'Nurul Khasanah, S.Psi', 'X.MIA 1-6, X.IIS 1-4', '', 1),
-(0, '197807162005022005', 'Tri Setiawan Budianto, S.pd', 'XII.MIA 1-6 , XII IIS 1-3', '', 1),
-(0, '197807162005022006', 'Ratna Agustina, S.Pd', 'XI.MIA 1-3', '', 1),
-(0, '197807162005022007', 'Abdul Syukur, S.Pd', 'XI.MIA 4-6, XI.IIS 1-3', '', 1),
-(0, '197807162005022008', 'Akbar maulana, S.Pd', 'XI.IIS 4-5', '', 1);
+INSERT INTO `bk_guru` (`id_guru`, `nik`, `nama`, `kelas`, `password`, `status`) VALUES
+(1, '197807162005022004', 'Nurul Khasanah, S.Psi', 'X.MIA 1-6, X.IIS 1-4', '', 0),
+(2, '197807162005022005', 'Tri Setiawan Budianto, S.pd', 'XII.MIA 1-6 , XII IIS 1-3', '', 0),
+(3, '197807162005022006', 'Ratna Agustina, S.Pd', 'XI.MIA 1-3', '', 0),
+(4, '197807162005022007', 'Abdul Syukur, S.Pd', 'XI.MIA 4-6, XI.IIS 1-9', '', 0),
+(5, '197807162005022008', 'Akbar maulana Ibrahim, S.Pd', 'XI.MIA 4-6, XI.IIS 1-5', '', 0);
 
 -- --------------------------------------------------------
 
@@ -599,7 +594,7 @@ INSERT INTO `bk_user` (`id_user`, `username`, `password`, `level`, `status`) VAL
 (0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
 (0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
 (0, '197807162005022007', '25f9e794323b453885f5181f1b624d0b', 3, 0),
-(0, '197807162005022008', 'd41d8cd98f00b204e9800998ecf8427e', 3, 1),
+(0, '197807162005022008', 'd41d8cd98f00b204e9800998ecf8427e', 3, 0),
 (0, '197807162005022004', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
 (0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
 (0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
@@ -608,7 +603,7 @@ INSERT INTO `bk_user` (`id_user`, `username`, `password`, `level`, `status`) VAL
 (0, '197807162005022005', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
 (0, '197807162005022006', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
 (0, '197807162005022007', '25d55ad283aa400af464c76d713c07ad', 3, 0),
-(0, '197807162005022008', '25f9e794323b453885f5181f1b624d0b', 3, 1),
+(0, '197807162005022008', '25f9e794323b453885f5181f1b624d0b', 3, 0),
 (0, '1111111111', 'fcea920f7412b5da7be0cf42b8c93759', 0, 0),
 (0, '3105111365', '81dc9bdb52d04dc20036dbd8313ed055', 0, 1),
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
@@ -667,7 +662,7 @@ INSERT INTO `bk_user` (`id_user`, `username`, `password`, `level`, `status`) VAL
 (0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
 (0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
 (0, '197807162005022007', '25f9e794323b453885f5181f1b624d0b', 3, 0),
-(0, '197807162005022008', 'd41d8cd98f00b204e9800998ecf8427e', 3, 1),
+(0, '197807162005022008', 'd41d8cd98f00b204e9800998ecf8427e', 3, 0),
 (0, '197807162005022004', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
 (0, '197807162005022005', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
 (0, '197807162005022006', '25d55ad283aa400af464c76d713c07ad', 3, 0),
@@ -676,7 +671,7 @@ INSERT INTO `bk_user` (`id_user`, `username`, `password`, `level`, `status`) VAL
 (0, '197807162005022005', 'e10adc3949ba59abbe56e057f20f883e', 3, 0),
 (0, '197807162005022006', 'fcea920f7412b5da7be0cf42b8c93759', 3, 0),
 (0, '197807162005022007', '25d55ad283aa400af464c76d713c07ad', 3, 0),
-(0, '197807162005022008', '25f9e794323b453885f5181f1b624d0b', 3, 1),
+(0, '197807162005022008', '25f9e794323b453885f5181f1b624d0b', 3, 0),
 (0, '1111111111', 'fcea920f7412b5da7be0cf42b8c93759', 0, 0);
 
 -- --------------------------------------------------------
@@ -744,6 +739,12 @@ ALTER TABLE `bk_data_konsultasi`
   ADD PRIMARY KEY (`id_data_konsultasi`);
 
 --
+-- Indexes for table `bk_guru`
+--
+ALTER TABLE `bk_guru`
+  ADD PRIMARY KEY (`id_guru`);
+
+--
 -- Indexes for table `bk_hasil_konferensi`
 --
 ALTER TABLE `bk_hasil_konferensi`
@@ -803,6 +804,12 @@ ALTER TABLE `bk_student`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bk_guru`
+--
+ALTER TABLE `bk_guru`
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `bk_kartu_status_konseling`
