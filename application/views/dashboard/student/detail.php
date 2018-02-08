@@ -104,15 +104,15 @@
 										<div class="col-sm-9">
 										<p class="p_adjust">
 										<?php 
-											if($list->agama==1){
+											if($list->agama==Islam){
 											echo 'Islam';
-											}else if($list->agama==2){
-											echo 'katolik';
-											}else if($list->agama==3){
+											}else if($list->agama==Katolik){
+											echo 'Katolik';
+											}else if($list->agama==Protestan){
 											echo 'Protestan';
-											}else if($list->agama==4){
+											}else if($list->agama==Hindu){
 											echo 'Hindu';
-											}else if($list->agama==5){
+											}else if($list->agama==Budha){
 											echo 'Budha';
 											}else{
 											echo 'Konghuchu';

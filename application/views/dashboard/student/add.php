@@ -103,12 +103,12 @@
 										<div class="col-sm-9">
 											<select name="agama" class="form-control">
 												<option class="form-control">[ Pilih salah satu ]</option>
-												<option value="1">Islam</option>
-												<option value="2">Katolik</option>
-												<option value="3">Protestan</option>
-												<option value="4">Hindu</option>
-												<option value="5">Budha</option>
-												<option value="6">Konghuchu</option>
+												<option value="Islam">Islam</option>
+												<option value="Katolik">Katolik</option>
+												<option value="Protestan">Protestan</option>
+												<option value="Hindu">Hindu</option>
+												<option value="Budha">Budha</option>
+												<option value="Konghuchu">Konghuchu</option>
 											</select>
 										</div>
 									</div>

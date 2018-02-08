@@ -110,12 +110,12 @@
 										<div class="col-sm-9">
 											<select name="agama" class="form-control">
 												<option class="form-control">[ Pilih salah satu ]</option>
-												<option value="1" <?php echo $list->agama==1 ? 'selected' :'' ;?>>Islam</option>
-												<option value="2" <?php echo $list->agama==2 ? 'selected' :'' ;?>>Katolik</option>
-												<option value="3" <?php echo $list->agama==3 ? 'selected' :'' ;?>>Protestan</option>
-												<option value="4" <?php echo $list->agama==4 ? 'selected' :'' ;?>>Hindu</option>
-												<option value="5" <?php echo $list->agama==5 ? 'selected' :'' ;?>>Budha</option>
-												<option value="6" <?php echo $list->agama==6 ? 'selected' :'' ;?>>Konghuchu</option>
+												<option value="agama" <?php echo $list->agama==Islam ? 'selected' :'' ;?>>Islam</option>
+												<option value="agama" <?php echo $list->agama==Katolik ? 'selected' :'' ;?>>Katolik</option>
+												<option value="agama" <?php echo $list->agama==Protestan ? 'selected' :'' ;?>>Protestan</option>
+												<option value="agama" <?php echo $list->agama==Hindu ? 'selected' :'' ;?>>Hindu</option>
+												<option value="agama" <?php echo $list->agama==Budha ? 'selected' :'' ;?>>Budha</option>
+												<option value="agama" <?php echo $list->agama==Konghuchu ? 'selected' :'' ;?>>Konghuchu</option>
 											</select>
 										</div>
 									</div>
